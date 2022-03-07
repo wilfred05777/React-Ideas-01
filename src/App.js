@@ -1,31 +1,44 @@
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AddTask from "./components/AddTask";
 
 const App = () => {
   const [showAddTask, setShowAddTask] = useState(false);
+  const [tasks, setTasks] = useState([]);
 
-  const [tasks, setTasks] = useState([
-    {
-      id: 1,
-      text: "Doctors Appointment",
-      day: "Feb 5th at 2:30pm",
-      reminder: true,
-    },
-    {
-      id: 2,
-      text: "Meeting at School",
-      day: "March 5th at 3:30pm",
-      reminder: true,
-    },
-    {
-      id: 3,
-      text: "Food Shopping",
-      day: "April 5th at 1:30pm",
-      reminder: false,
-    },
-  ]);
+  useEffect(() => {
+    const fetchTasks = async () => {
+      const res = await fetch("http://localhost:5000/tasks");
+      const data = await res.json();
+      console.log(data);
+
+      return;
+    };
+
+    fetchTasks();
+  }, []);
+
+  // const [tasks, setTasks] = useState([
+  //   {
+  //     id: 1,
+  //     text: "Doctors Appointment",
+  //     day: "Feb 5th at 2:30pm",
+  //     reminder: true,
+  //   },
+  //   {
+  //     id: 2,
+  //     text: "Meeting at School",
+  //     day: "March 5th at 3:30pm",
+  //     reminder: true,
+  //   },
+  //   {
+  //     id: 3,
+  //     text: "Food Shopping",
+  //     day: "April 5th at 1:30pm",
+  //     reminder: false,
+  //   },
+  // ]);
 
   //// DELETE TASK
   const deleteTask = (id) => {
