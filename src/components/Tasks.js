@@ -1,5 +1,7 @@
 // import { useState } from "react";
 
+import Task from "./Task";
+
 //// outside of the component state
 // const tasks = [
 //     {
@@ -22,7 +24,7 @@
 //     },
 //   ];
 
-const Tasks = ({ tasks }) => {
+const Tasks = ({ tasks, onDelete }) => {
   //// making it part of the component state
   //   const [tasks, setTasks] = useState([
   //     {
@@ -47,7 +49,8 @@ const Tasks = ({ tasks }) => {
   return (
     <>
       {tasks.map((task) => (
-        <h3 key={task.id}>{task.text}</h3>
+        // <h3 key={task.id}>{task.text}</h3>
+        <Task key={task.id} task={task} onDelete={onDelete} />
       ))}
     </>
   );

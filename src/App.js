@@ -23,11 +23,22 @@ const App = () => {
       reminder: false,
     },
   ]);
+
+  //// DELETE TASK
+  const deleteTask = (id) => {
+    // console.log("delete", id);
+    setTasks(tasks.filter((task) => task.id !== id));
+  };
+
   return (
     <div className="container">
       {/* <h1> Task Tracer App</h1> */}
       <Header />
-      <Tasks tasks={tasks} />
+      {tasks.length > 0 ? (
+        <Tasks tasks={tasks} onDelete={deleteTask} />
+      ) : (
+        "No Tasks to Show"
+      )}
     </div>
   );
 };
