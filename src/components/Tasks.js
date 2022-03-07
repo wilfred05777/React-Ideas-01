@@ -24,7 +24,7 @@ import Task from "./Task";
 //     },
 //   ];
 
-const Tasks = ({ tasks, onDelete }) => {
+const Tasks = ({ tasks, onDelete, onToggle }) => {
   //// making it part of the component state
   //   const [tasks, setTasks] = useState([
   //     {
@@ -50,7 +50,12 @@ const Tasks = ({ tasks, onDelete }) => {
     <>
       {tasks.map((task) => (
         // <h3 key={task.id}>{task.text}</h3>
-        <Task key={task.id} task={task} onDelete={onDelete} />
+        <Task
+          key={task.id}
+          task={task}
+          onDelete={onDelete}
+          onToggle={onToggle}
+        />
       ))}
     </>
   );
