@@ -41,11 +41,16 @@ const App = () => {
     );
   };
 
+  //// ADD TASK
+  const addTask = (task) => {
+    console.log(task);
+  };
+
   return (
     <div className="container">
       {/* <h1> Task Tracer App</h1> */}
       <Header />
-      <AddTask />
+      <AddTask onAdd={addTask} />
       {tasks.length > 0 ? (
         <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} />
       ) : (
