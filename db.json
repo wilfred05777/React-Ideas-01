@@ -11,12 +11,6 @@
       "text": "Meeting at School",
       "day": "March 5th at 3:30pm",
       "reminder": true
-    },
-    {
-      "id": 3,
-      "text": "Food Shopping",
-      "day": "April 5th at 1:30pm",
-      "reminder": false
     }
   ]
 }
