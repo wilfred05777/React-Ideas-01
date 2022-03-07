@@ -1,11 +1,18 @@
 import PropTypes from "prop-types";
 import Button from "./Button";
 
-const Header = ({ title }) => {
+const Header = ({ title, onAdd, showAdd }) => {
+  // const onClick = () => {};
+
   return (
     <header className="header">
       <h1>{title}</h1>
-      <Button color="green" className="btn" text="Add" />
+      <Button
+        color="green"
+        className="btn"
+        text={showAdd ? "Close" : "Add"}
+        onClick={onAdd}
+      />
     </header>
   );
 };
